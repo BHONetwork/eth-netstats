@@ -46,7 +46,7 @@ var api;
 var client;
 var server;
 
-
+var localDir = process.env.DIR || '/';
 // Init API Socket connection
 api = new Primus(server, {
 	transformer: 'websockets',
@@ -61,7 +61,7 @@ api.plugin('spark-latency', require('primus-spark-latency'));
 // Init Client Socket connection
 client = new Primus(server, {
 	transformer: 'websockets',
-	pathname: '/primus',
+	pathname: localDir + 'primus',
 	parser: 'JSON'
 });
 
@@ -71,7 +71,7 @@ client.plugin('emit', require('primus-emit'));
 // Init external API
 external = new Primus(server, {
 	transformer: 'websockets',
-	pathname: '/external',
+	pathname: localDir + 'external',
 	parser: 'JSON'
 });
 
