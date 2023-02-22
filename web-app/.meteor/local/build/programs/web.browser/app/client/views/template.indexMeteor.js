@@ -361,7 +361,7 @@ Template["indexMeteor"] = new Template("Template.indexMeteor", (function() {
   })), "\n            ", HTML.TH(HTML.I({
     "data-toggle": "tooltip",
     "data-placement": "top",
-    title: "Pending transactions",
+    title: "Transactions",
     "ng-click": "orderTable(['-stats.pending'], false)",
     "class": "icon-network"
   })), "\n            ", HTML.TH(HTML.I({

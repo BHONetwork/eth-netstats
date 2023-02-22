@@ -279,7 +279,7 @@ Template["index"] = new Template("Template.index", (function() {
     "class": "icon-network",
     "data-toggle": "tooltip",
     "data-placement": "top",
-    title: "Pending transactions",
+    title: "Transactions",
     "ng-click": "orderTable(['-stats.pending'], false)"
   })), "\n", HTML.TH(HTML.I({
     "class": "icon-block",

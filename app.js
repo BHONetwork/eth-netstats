@@ -1,3 +1,4 @@
+require('dotenv').config()
 var _ = require('lodash');
 var logger = require('./lib/utils/logger');
 var chalk = require('chalk');
