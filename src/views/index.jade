@@ -176,6 +176,7 @@ block content
               i.icon-check-o(data-toggle="tooltip", data-placement="top", title="Block transactions", ng-click="orderTable(['-stats.block.transactions.length'], false)")
             th
               i.icon-block(data-toggle="tooltip", data-placement="top", title="Last block", ng-click="orderTable(['-stats.block.number', 'stats.block.propagation'], false)")
+            th.th-blockhash &nbsp;
             th.th-blockhash
               i.icon-difficulty(data-toggle="tooltip", data-placement="top", title="Total difficulty", ng-click="orderTable(['-stats.block.totalDifficulty'], false)")
             th
@@ -202,9 +203,8 @@ block content
               div.small(ng-bind-html="node.info.node | nodeVersion")
             td(class="{{ node.readable.latencyClass }}")
               span.small {{ node.readable.latency }}
-            td(class="{{ node.stats.mining | hashrateClass : node.stats.active }}", ng-bind-html="node.stats.hashrate | hashrateFilter : node.stats.mining")
             td(class="{{ node.stats.peers | peerClass : node.stats.active }}", style="padding-left: 11px;") {{node.stats.peers}}
-            td(style="padding-left: 15px;") {{node.stats.pending}}
+            td(style="padding-left: 14px;") {{node.stats.block.transactions.length || 0}}
             td(class="{{ node.stats | blockClass : bestBlock }}")
               span(class="{{ node.readable.forkMessage ? node.readable.forkClass : '' }}") {{'#'}}{{ node.stats.block.number | number }}
               //- a.small(data-toggle="tooltip", data-placement="top", data-html="true", data-original-title="{{ node.readable.forkMessage }}", class="{{ node.readable.forkClass }}")
@@ -213,7 +213,6 @@ block content
               span.small {{node.stats.block.hash | hashFilter}}
             td(class="{{ node.stats | blockClass : bestBlock }}")
               span.small {{node.stats.block.totalDifficulty | number}}
-            td(style="padding-left: 14px;") {{node.stats.block.transactions.length || 0}}
             td(style="padding-left: 14px;") {{node.stats.block.uncles.length || 0}}
             td(class="{{ node.stats.block.received | timeClass : node.stats.active }}") {{node.stats.block.received | blockTimeFilter }}
             td(class="{{ node.stats | propagationTimeClass : bestBlock }}")
